@@ -1,7 +1,7 @@
 
 ## React
 
-###背景
+### 背景
 
 
 * 用 HTML 创建 DOM，构建整个网页的布局、结构
@@ -23,7 +23,7 @@ function onClick() {
 ```
 
 
-###初识 React
+### 初识 React
 
 随着 FaceBook 推出了 React 框架，这个问题得到了大幅度改善。我们可以把一组相关的 HTML 标签，也就是 app 内的 UI 控件，封装进一个组件(Component)中，我从阮一峰的 React 教程中摘录了一段代码：
 
@@ -49,7 +49,7 @@ class CustomComponent extends Component({
 
 在 React 框架中，除了可以用 JavaScript 写 HTML 以外，我们甚至可以写 CSS，这在后面的例子中可以看到。
 
-###理解 React
+### 理解 React
 
 前端界总是喜欢创造新的概念，仿佛谁说的名词更晦涩，谁的水平就越高。如果你和当时的我一样，听到 React 这个概念一脸懵逼的话，只要记住以下定义即可：
 
@@ -69,7 +69,7 @@ class CustomComponent extends Component({
 
 分别介绍完了移动端和前端的背景知识后，本文的主角——React Native 终于要登场了。
 
-###融合
+### 融合
 
 React 在前端取得突破性成功以后，JavaScript 布道者们开始试图一统三端。他们利用了移动平台能够运行 JavaScript 代码的能力，并且发挥了 JavaScript 不仅仅可以传递配置信息，还可以表达逻辑信息的优点。
 
@@ -89,7 +89,7 @@ React Native 希望前端开发者学习完 React 后，能够用同样的语法
 
 如果用一个词概括 React Native，那就是：**Native** 版本的 **React**。
 
-###原理概述
+### 原理概述
 
 React Native 不是黑科技，我们写的代码总是以一种非常合理，可以解释的方式的运行着，只是绝大多数人没有理解而已。接下来我以 iOS 平台为例，简单的解释一下 React Native 的原理。
 
@@ -115,7 +115,7 @@ JavaScript 是一种单线程的语言，它不具备自运行的能力，因此
 
 提到 Objective-C 与 JavaScript 的交互，不得不推荐 bang神的这篇文章：[React Native通信机制详解](http://blog.cnbang.net/tech/2698/) 。虽然其中不少细节都已经过时，但是整体的思路值得学习。
 
-###JavaScript 调用 Objective-C
+### JavaScript 调用 Objective-C
 
 由于 JavaScript Core 是一个面向 Objective-C 的框架，在 Objective-C 这一端，我们对 JavaScript 上下文知根知底，可以很容易的获取到对象，方法等各种信息，当然也包括调用 JavaScript 函数。
 
@@ -123,20 +123,20 @@ JavaScript 是一种单线程的语言，它不具备自运行的能力，因此
 
 React Native 解决这个问题的方案是在 Objective-C 和 JavaScript 两端都保存了一份配置表，里面标记了所有 Objective-C 暴露给 JavaScript 的模块和方法。这样，无论是哪一方调用另一方的方法，实际上传递的数据只有 ModuleId、MethodId 和 Arguments 这三个元素，它们分别表示类、方法和方法参数，当 Objective-C 接收到这三个值后，就可以通过 runtime 唯一确定要调用的是哪个函数，然后调用这个函数。
 
-###闭包与回调
+### 闭包与回调
 既然说到函数互调，那么就不得不提到回调了。对于 Objective-C 来说，执行完 JavaScript 代码再执行 Objective-C 回调毫无难度，难点依然在于 JavaScript 代码调用 Objective-C 之后，如何在 Objective-C 的代码中，回调执行 JavaScript 代码。
 
 目前 React Native 的做法是：在 JavaScript 调用 Objective-C 代码时，注册要回调的 Block，并且把 BlockId 作为参数发送给 Objective-C，Objective-C 收到参数时会创建 Block，调用完 Objective-C 函数后就会执行这个刚刚创建的 Block。
 
 Objective-C 会向 Block 中传入参数和 BlockId，然后在 Block 内部调用 JavaScript 的方法，随后 JavaScript 查找到当时注册的 Block 并执行
 
-###图解
+### 图解
 ![image](./picture_js_oc.png)
 
 ------
 ##React Native 源码分析
 
-###初始化 React Native
+### 初始化 React Native
 
 每个项目都有一个入口，然后进行初始化操作，React Native 也不例外。一个不含 Objective-C 代码的项目留给我们的唯一线索就是位于 AppDelegate 文件中的代码：
 
@@ -275,7 +275,7 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 
 如前文所述，在 React Native 中，Objective-C 和 JavaScript 的交互都是通过传递 `ModuleId`、`MethodId` 和 `Arguments` 进行的。以下是分情况讨论：	
 
-###调用 JavaScript 代码
+### 调用 JavaScript 代码
 
 也许你在其他文章中曾经多次听说 JavaScript 代码总是在一个单独的线程上面调用，它的实际含义是 Objective-C 会在单独的线程上运行 JavaScript 代码：
 
@@ -307,7 +307,7 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 
 ```
 
-###JavaScript 调用 Objective-C
+### JavaScript 调用 Objective-C
 
 在调用 Objective-C 代码时，如前文所述，JavaScript 会解析出方法的 `ModuleId`、`MethodId` 和 `Arguments` 并放入到 `MessageQueue` 中，等待 Objective-C 主动拿走，或者超时后主动发送给 Objective-C。
 
@@ -385,13 +385,13 @@ Person.greetss('Haha', 'Heihei', (events) => {
 
 经过一长篇的讨论，其实 React Native 的优缺点已经不难分析了，这里简单总结一下：
 
-###优点
+### 优点
 
 1. 复用了 React 的思想，有利于前端开发者涉足移动端。
 2. 能够利用 JavaScript 动态更新的特性，快速迭代。
 3. 相比于原生平台，开发速度更快，相比于 Hybrid 框架，性能更好。
 
-###缺点
+### 缺点
 
 1. 做不到 `Write once, Run everywhere`，也就是说开发者依然需要为 iOS 和 Android 平台提供两套不同的代码，比如参考官方文档可以发现不少组件和API都区分了 Android 和 iOS 版本。即使是共用组件，也会有平台独享的函数。
 
@@ -405,6 +405,6 @@ Person.greetss('Haha', 'Heihei', (events) => {
 
 ---- 
 
-###参考资料
+### 参考资料
 
 [React Native 中文网](https://reactnative.cn/docs/0.44/getting-started.html#content
