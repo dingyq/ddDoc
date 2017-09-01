@@ -40,7 +40,7 @@ Node.js虽然很新但是很快就获得了极大的追捧。在很多的大公�
 	
 	- php上下衔接依次执行；
 
-	- node中因为运行速度很快并不会等待，所以如果后面用到前面返回的结果，就需要把后面的封装起来，作为一个回调函数执行；　　
+	- Node.js中因为运行速度很快并不会等待，所以如果后面用到前面返回的结果，就需要把后面的封装起来，作为一个回调函数执行；　　
 　　![image](./php_node_2.png)
 
 
@@ -56,16 +56,48 @@ Node.js虽然很新但是很快就获得了极大的追捧。在很多的大公�
 - 中间件少
 - IDE不完善
 
-### node.js的劣势和解决方案　　
+### Node.js的劣势和解决方案　　
 1. 默认不支持多核，但可以用cluster解决
 2. 默认不支持服务器集群，node-http-proxy可以解决
 3. 使用nginx做负载均衡，静态的由nginx处理，动态的有node.js处理
 4. forever或node-cluster实现灾难恢复
 
 ----
+
+## Node.js 快速搭建Http服务
+
+```
+var http = require('http');
+
+http.createServer(function (request, response) {
+
+	// 发送 HTTP 头部 
+	// HTTP 状态值: 200 : OK
+	// 内容类型: text/plain
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+
+	// 发送响应数据 "Hello World"
+	response.end('Hello World\n');
+}).listen(8888);
+
+// 终端打印如下信息
+console.log('Server running at http://127.0.0.1:8888/');
+
+```
+
+以上代码我们完成了一个可以工作的 HTTP 服务器。
+使用 node 命令执行以上的代码：
+
+```
+node server.js
+Server running at http://127.0.0.1:8888/
+
+```
+
 ## Express
 
 <!--高度包容、快速而极简的 Node.js Web 框架-->
+
 Express 是一个简洁而灵活的 Node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
 
 使用 Express 可以快速地搭建一个完整功能的网站。
