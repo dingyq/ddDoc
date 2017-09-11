@@ -67,12 +67,16 @@ class CustomComponent extends Component({
 
 ## React Native
 
+分别介绍完了移动端和前端的背景知识后，本文的主角——React Native 终于要登场了。
+
+React Native 诞生于 2015 年，名副其实的富二代，主要使命是为父出征，与 Apple 和 Google 抗衡，为开发者带去一套跨平台、动态更新的 Javascript 框架，口号是：Learn once, write anywhere：Build mobile apps with React。在试图推翻 Android 和 iOS 压制的同时，还提携了一把自家兄弟：React。
+
+本文原理分析使用的RN源码版本为：
+
 ```
 react-native-cli: 2.0.1
 react-native: 0.44.0
 ```
-
-分别介绍完了移动端和前端的背景知识后，本文的主角——React Native 终于要登场了。
 
 ### 融合
 
