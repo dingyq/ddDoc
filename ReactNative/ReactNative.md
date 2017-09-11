@@ -65,7 +65,12 @@ class CustomComponent extends Component({
 
 如果不从事前端开发，就不用深入的掌握 Flux 和 Redux 架构，但理解这一套体系结构对于后面理解 React Native 非常重要。
 
-##React Native
+## React Native
+
+```
+react-native-cli: 2.0.1
+react-native: 0.44.0
+```
 
 分别介绍完了移动端和前端的背景知识后，本文的主角——React Native 终于要登场了。
 
@@ -75,7 +80,7 @@ React 在前端取得突破性成功以后，JavaScript 布道者们开始试图
 
 当痛点遇上特点，两者一拍即合，于是乎：
 
-`一个基于 JavaScript，具备动态配置能力，面向前端开发者的移动端开发框架，React Native，诞生了！`
+一个基于 JavaScript，具备动态配置能力，面向前端开发者的移动端开发框架，React Native，诞生了！
 
 看到了么，这是一个面向前端开发者的框架。它的宗旨是让前端开发者像用 React 写网页那样，用 React Native 写移动端应用。这就是为什么 React Native 自称：
 
@@ -260,7 +265,7 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 
 * **执行 JavaScript 源码**
  
-	这一步也没什么技术难度可以，代码已经加载进了内存，该做的配置也已经完成，只要把 JavaScript 代码运行一遍即可。
+	这一步也没什么技术难度，代码已经加载进了内存，该做的配置也已经完成，只要把 JavaScript 代码运行一遍即可。
 
 	运行代码时，第三步中注册的 Block 就会被执行，从而向 JavaScript 端写入配置信息。
 
@@ -313,7 +318,7 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 
 Objective-C 负责处理调用的方法是 handleBuffer，它的参数是一个含有四个元素的数组，每个元素也都是一个数组，分别存放了 `ModuleId`、`MethodId`、`Params`，第四个元素目测用处不大。
 
-函数内部在每一次方调用中调用 `_handleRequestNumber:moduleID:methodID:params` 方法，通过查找模块配置表找出要调用的方法，并通过 runtime 动态的调用：
+函数内部在每一次方调用中调用 `callNativeModule:method:params:` 方法，通过查找模块配置表找出要调用的方法，并通过 runtime 动态的调用：
 
 ```
 [method invokeWithBridge:self module:moduleData.instance arguments:params];
@@ -406,5 +411,6 @@ Person.greetss('Haha', 'Heihei', (events) => {
 ---- 
 
 ### 参考资料
+[React Native 中文网](https://reactnative.cn/docs/0.44/getting-started.html#content)
 
-[React Native 中文网](https://reactnative.cn/docs/0.44/getting-started.html#content
+[写给移动开发者的-React-Native-指南](http://wingjay.com/2017/03/14/写给移动开发者的-React-Native-指南/)
