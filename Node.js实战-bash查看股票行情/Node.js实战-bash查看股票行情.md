@@ -1,9 +1,9 @@
-基于之前的一篇文章[Node.js+express快速入门](https://futu.lexiangla.com/teams/mac/documents/2e8660ea8eba11e7b1c55254004b6d18?lxref=header-mini)，本篇文章通过Node.js快速搭建一个简单的server，实现bash下查看股票行情。
+基于之前的一篇文章[Node.js+express快速入门](http://bigqiang.com/?p=351)，本篇文章通过Node.js快速搭建一个简单的server，实现bash下查看股票行情。
 
 访问方式：
 
 - 打开终端
-- 输入`curl hostname/?key=00700`便可查看腾讯控股的日K行情
+- 输入`curl bigqiang.com:8080/?key=00700`便可查看腾讯控股的日K行情
 
 先上一张效果图
 
@@ -16,15 +16,12 @@
 2. 使用第一步获取的搜索结果，拿到`stockId`，将`stockId`传递给K线数据拉取接口；
 3. 使用第二步获取到的K线数据，拼装bash下可显示的数据文本，并发回客户端；
 
-搜索协议与K线数据拉取协议复用[富途牛牛小程序的相关协议](http://gitlab.futunn.com/echo/doc_sc/blob/master/web_http_api/webchatapp_interface.md#L82)
+搜索协议与K线数据拉取协议复用富途牛牛小程序的相关协议
 
 - 股票搜索协议
-
-	![](stock_search_protocol.png)
-
 - K线数据拉取协议
 
-	![](stock_kline_protocol.png)
+**具体协议自行想办法抓取，这里就不贴了**
 
 ## 实现细节
 
