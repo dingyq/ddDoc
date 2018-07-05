@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">4</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">4230bce7-99c4-42dc-ac56-341c1079929d</dc:identifier>
+        <dc:title>大国的崩溃：苏联解体的台前幕后（老布什图书馆绝密档案新近解密！哈佛大学现代史专家，还原改变苏联命运和世界面貌的五个月）</dc:title>
+        <dc:creator opf:file-as="[美]沙希利·浦洛基" opf:role="aut">[美]沙希利·浦洛基</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (3.21.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>2017-05-31T16:00:00+00:00</dc:date>
+        <dc:description>&lt;p class="description"&gt;浦洛基教授用简洁的语言清晰讲述了围绕着苏联解体的一系列复杂事件和方方面面，同时也阐释了苏联政府最终无法管控乌克兰和俄罗斯民族运动的原因。作为浦洛基杰出的学术成果，这本书可以和弗拉季斯拉夫·祖博克所著《失败的帝国》相提并论，对于那些对政治阴谋情有独钟的历史学家、时政专业学生和任何其他人来说，这本书都是极好的。&lt;/p&gt;</dc:description>
+        <dc:publisher>四川人民出版社</dc:publisher>
+        <dc:identifier opf:scheme="MOBI-ASIN">fcc0768b-cdf0-4c23-98b0-d2ee82dee026</dc:identifier>
+        <dc:language>zho</dc:language>
+        <dc:subject>21-2014-116</dc:subject>
+        <dc:subject>大国的崩溃:苏联解体的台前幕后</dc:subject>
+        <dc:subject>①苏联解体-研究</dc:subject>
+        <meta content="{&quot;[美]沙希利·浦洛基&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2018-06-15T07:45:58.003646+00:00" name="calibre:timestamp"/>
+        <meta content="大国的崩溃：苏联解体的台前幕后（老布什图书馆绝密档案新近解密！哈佛大学现代史专家，还原改变苏联命运和世界面貌的五个月）" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="Da Guo De Beng Kui _Su Lian Jie Ti De Tai Qian Mu Hou e Mian Mao De Wu Ge Yue ) - [Mei ]Sha Xi Li _Pu Luo Ji.jpg" title="封面" type="cover"/>
+    </guide>
+</package>
