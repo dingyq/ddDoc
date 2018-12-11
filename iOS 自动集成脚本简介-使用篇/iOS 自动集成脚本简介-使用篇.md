@@ -32,18 +32,13 @@
 
 #### 定时出DailyBuild包（版本负责人关注）
 
-1. 屏幕共享连到打包机`172.18.11.68`：
-	- 输入账号：`xcodeserver`
-	- 密码：`******`
-2. 终端切换到`/Users/xcodeserver/Documents/src_ios_daily_build/ftphoneniuniu`目录下
-	
-	> `cd /Users/xcodeserver/Documents/src_ios_daily_build/ftphoneniuniu`
-	
-3. 执行脚本`./git_cmd.sh s branch_name`
+1. 主工程目录下，执行脚本`./switch_daily_build_branch.sh beta iPhone_1810`
 
-	> `branch_name`为需要定时出包的分支，例如`./git_cmd.sh s iPhone_1810`，则每天会定时出1810的的DB包
-
-4. 以上3点也可以通过`ssh xcodeserver@172.18.11.68`的方式完成。
+	> `beta`为对应target类型，参数只接受`beta`或`sns`；
+	>
+	> `iPhone_1810`为对应的分支名
+	
+2. 输入打包机密码即可完成每日编译包的配置
 	
 ---
 
