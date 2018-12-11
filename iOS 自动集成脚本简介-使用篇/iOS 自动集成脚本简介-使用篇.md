@@ -16,7 +16,7 @@
 	> 5、`moomoo_app_store`出上传到iTunesConnect的美分提审包
 	
 2. 终端切换到主工程目录下执行脚本`start_auto_build.sh`
-	![](./step_11.png)
+	![](./step_1.png)
 3. 根据提示输入打包机密码后，检查打包信息是否有误，然后决定是否继续执行打包任务
 	![](./step_2.png)
 4. 输入`n`会终止打包任务，输入`y`则开始打包任务
