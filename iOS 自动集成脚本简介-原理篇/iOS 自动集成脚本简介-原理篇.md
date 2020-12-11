@@ -40,7 +40,7 @@ source_record_type（辅助类型信息，用于并发打包）
 
 1. ssh到远程打包机是，编译成功，导出失败，而直接到打包机上执行打包脚本一切正常
 
-	> security unlock-keychain -p mac@futu5.com ~/Library/Keychains/login.keychain
+	> security unlock-keychain -p password ~/Library/Keychains/login.keychain
 	
 2. 如何读写`plist`文件，用来辅助记录必要信息？
 
